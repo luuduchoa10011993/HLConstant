@@ -42,22 +42,34 @@ public enum AppColor{
     case lightRedText
     case grey
     case greyText
-    case onahau
     case textUltraLight
     case line
     case color(UIColor)
     case hex(String)
     case rgb(CGFloat, CGFloat, CGFloat)
     
+    /* HoaLD color name Start*/
+    case onahau
+    case jade
+    case solitude
+    case gainsboro
+    case gray44
+    case gray94
+    /* HoaLD color name End */
+    case textNormal
+    case lightGrayBoder
     case cartOrderHeaderBackground
     case handnoteInstallmentPaymentPrimary
     case handnoteCompletePassengerInformation
     case handnoteStatusButtonCompletePassengerInformationBackground
     case handnoteStatusButtonCompletePassengerInformationTextColor
     case handnoteMoneyColor
+    case messengerPrimary
     case messengerQuoteBackground
     case messengerQuoteLine
     case messengerQuoteBackgroundLeft
+    
+    case tetHolidayRed
     
     public func getColor() -> UIColor{
         switch self {
@@ -68,7 +80,7 @@ public enum AppColor{
         case .background:
             return UIColor.groupTableViewBackground
         case .normal:
-            return AppColorDefine2.text
+            return AppColorDefine2.textNormal
         case .dark,
              .black:
             return UIColor.black
@@ -104,13 +116,25 @@ public enum AppColor{
         case .greenText:
             return AppColorDefine2.greenText
         case .greyText:
-            return AppColorDefine2.textGrey
+            return AppColorDefine2.matterhorn
         case .onahau:
             return AppColorDefine2.onahau
+        case .jade:
+            return AppColorDefine2.jade
+        case .solitude:
+            return AppColorDefine2.solitude
+        case .gainsboro:
+            return AppColorDefine2.gainsboro
+        case .gray44:
+            return AppColorDefine2.gray44
+        case .gray94:
+            return AppColorDefine2.gray94
+        case .lightGrayBoder:
+            return AppColorDefine2.gray92
         case .backgroundCell:
             return AppColorDefine2.backgroundCell
         case .hex(let color):
-            return UIColor.init(hexString: color) ?? AppColorDefine.textBodyColor
+            return UIColor.init(hexString: color) ?? AppColorDefine2.textNormal
         case .rgb(let r, let g, let b):
             return UIColor(red: r, green: g, blue: b, alpha: 1)
         case .cartOrderHeaderBackground:
@@ -129,12 +153,18 @@ public enum AppColor{
             return AppColorDefine2.handnoteStatusButtonCompletePassengerInformationTextColor
         case .handnoteMoneyColor:
             return AppColorDefine2.handnoteMoneyColor
+        case .messengerPrimary:
+            return AppColorDefine2.messengerPrimary
         case .messengerQuoteBackground:
             return AppColorDefine2.messengerQuoteBackground
         case .messengerQuoteLine:
             return AppColorDefine2.messengerQuoteLine
         case .messengerQuoteBackgroundLeft:
             return AppColorDefine2.messengerQuoteBackgroundLeft
+        case .textNormal:
+            return AppColorDefine2.textNormal
+        case .tetHolidayRed:
+            return AppColorDefine2.tetHolidayButton_Red
         }
     }
 }
@@ -143,59 +173,85 @@ public enum AppColor{
 
 public class AppColorDefine2: NSObject {
     
-    public static let primary                   =   UIColor.init(hexString: "#24A8D8")!
-    public static let text                      =   UIColor.init(hexString: "#000000")!
+    public static let primary                   =   UIColor.init(hexString: "#DE0522")!
     public static let textLight                 =   UIColor.init(hexString: "#999999")!
     public static let textUltraLight            =   UIColor.init(hexString: "#888888")!
-    public static let textPlaceholder           =   UIColor(red: 199/255, green: 199/255, blue: 205/255, alpha: 1)
-    public static let line                      =   UIColor.init(hexString: "#EBEBEB")!
-    public static let redText                   =   UIColor.init(hexString: "#FF0406")!
+    public static let textPlaceholder           =   UIColor.init(hexString: "#C7C7CD")!
+    public static let redText                   =   torchRed
     public static let lightRedText              =   UIColor.init(hexString: "#FF3F34")!
     public static let greenText                 =   UIColor.init(hexString: "#0AC46B")!
     public static let backgroundCell            =   UIColor.init(hexString: "#F6F6F6")!
-    public static let textGrey                  =   UIColor.init(hexString: "#555555")!
+    
     public static let onahau                    =   UIColor.init(hexString: "#C2F9FF")!
-    public static let messengerQuoteBackground  =   UIColor.init(hexString: "#1f90b9")!
-    public static let messengerQuoteBackgroundLeft = UIColor.init(hexString: "#E5E5E5")!
+    public static let gray44                    =   UIColor.init(hexString: "#707070")!
+    public static let gray90                    =   UIColor.init(hexString: "#E5E5E5")!
+    public static let gray92                    =   UIColor.init(hexString: "#EBEBEB")!
+    public static let gray94                    =   UIColor.init(hexString: "#F0F0F0")!
+    public static let matterhorn                =   UIColor.init(hexString: "#555555")!
+    public static let darkTangerine             =   UIColor.init(hexString: "#FF9712")!
+    public static let whiteSmoke                =   UIColor.init(hexString: "#FFEFEF")!
+    public static let summerSky                 =   UIColor.init(hexString: "#24A8D8")! /* This is Base primary color app  */
+    public static let jade                      =   UIColor.init(hexString: "#05C46B")!
+    public static let solitude                  =   UIColor.init(hexString: "#F0F1F3")!
+    public static let gainsboro                 =   UIColor.init(hexString: "#E0E0E0")!
+    public static let neonCarrot                =   UIColor.init(hexString: "#FF9722")!
+    public static let torchRed                  =   UIColor.init(hexString: "#FF0406")!
+    public static let lilyWhite                 =   UIColor.init(hexString: "#E1F4EA")!
+    public static let bridalHeath               =   UIColor.init(hexString: "#FFEFDF")!
+    public static let floralWhite               =   UIColor.init(hexString: "#FFFAF2")!
+    public static let pumpkin                   =   UIColor.init(hexString: "#FF801D")!
+    public static let flamingo                  =   UIColor.init(hexString: "#EE5656")!
+    public static let oldLace                   =   UIColor.init(hexString: "#FFF7EB")!
+    public static let darkOrange                =   UIColor.init(hexString: "#FF8002")!
     
-    public static let messengerQuoteLine = UIColor.init(hexString: "#9FD1E2")!
     
-    public static let cartOrderTour = UIColor.init(hexString: "#FF9712")!
-    public static let cartOrderHotel = UIColor.init(hexString: "#FF9712")!
-    public static let cartOrderEditInfoNow = UIColor.init(hexString: "#FF9712")!
-    public static let cartOrderEditInfoNowBackground = UIColor.init(hexString: "#FFFAF2")!
-    public static let cartOrderAlreadyInformed =  UIColor.init(hexString: "#0AC46B")!
-    public static let cartOrderAlreadyInformedBackground =  UIColor.init(hexString: "#E1F4EA")!
-    public static let cartOrderError =  UIColor.init(hexString: "#FF0406")!
-    public static let cartOrderErrorBackground =  UIColor.init(hexString: "#FFF2F2")!
-    public static let cartOrderHeaderSection = UIColor.init(hexString: "#EBEBEB")!
-    public static let cartOrderNextButtonEnabled = UIColor.init(hexString: "#24A8D8")!
-    public static let cartOrderNextButtonDisable = UIColor.init(hexString: "#999999")!
-    public static let cartOrderHeaderBackground = UIColor.init(hexString: "#E0E0E0")!
-    public static let cartOrderHoltelInfoSection = UIColor.init(hexString: "#F0F1F3")!
+    public static let textNormal                =   UIColor.black
+    public static let line                      =   gray92
     
-    public static let handnoteOrderStatusBackgroundWaitingForAccept = UIColor.init(hexString: "#FFEFDF")!
-    public static let handnoteOrderStatusTextWaitingForAccept = UIColor.init(hexString: "#FF9722")!
+    public static let messengerPrimary              =   summerSky
+    public static let messengerQuoteBackground      =   messengerPrimary.darker(by: 10)!
+    public static let messengerQuoteBackgroundLeft  =   gray90
+    public static let messengerQuoteLine            =   messengerPrimary.darker(by: 10)!
+    
+    public static let cartOrderTour = darkTangerine
+    public static let cartOrderHotel = darkTangerine
+    public static let cartOrderEditInfoNow = darkTangerine
+    public static let cartOrderEditInfoNowBackground = floralWhite
+    public static let cartOrderAlreadyInformed =  greenText
+    public static let cartOrderAlreadyInformedBackground =  lilyWhite
+    public static let cartOrderError =  torchRed
+    public static let cartOrderErrorBackground =  whiteSmoke
+    public static let cartOrderHeaderSection = gray92
+    public static let cartOrderNextButtonEnabled = summerSky
+    public static let cartOrderNextButtonDisable = textLight
+    public static let cartOrderHeaderBackground = gainsboro
+    public static let cartOrderHoltelInfoSection = solitude
+    
+    public static let handnoteOrderStatusBackgroundWaitingForAccept = bridalHeath
+    public static let handnoteOrderStatusTextWaitingForAccept = neonCarrot
     public static let handnoteOrderStatusBackgroundWaitingForServe = onahau
-    public static let handnoteOrderStatusTextWaitingForServe = UIColor.init(hexString: "#24A8D8")!
+    public static let handnoteOrderStatusTextWaitingForServe = summerSky
     public static let handnoteOrderStatusBackgroundFinishedServe = onahau
-    public static let handnoteOrderStatusTextFinishedServe = UIColor.init(hexString: "#24A8D8")!
-    public static let handnoteOrderStatusBackgroundOrderBeenCancel = UIColor.init(hexString: "#FFEFEF")!
-    public static let handnoteOrderStatusTextOrderBeenCancel = UIColor.init(hexString: "#FF0406")!
+    public static let handnoteOrderStatusTextFinishedServe = summerSky
+    public static let handnoteOrderStatusBackgroundOrderBeenCancel = whiteSmoke
+    public static let handnoteOrderStatusTextOrderBeenCancel = torchRed
     
     public static let handnoteOrderStatusBackgroundWaitingForServiceFlight = onahau
-    public static let handnoteOrderStatusTextWaitingForServiceFlight = UIColor.init(hexString: "#24A8D8")!
-    public static let handnoteOrderStatusBackgroundFinishedServiceFlight = UIColor.init(hexString: "#E1F4EA")!
-    public static let handnoteOrderStatusTextFinishedServiceFlight = UIColor.init(hexString: "#0AC46B")!
-    public static let handnoteOrderStatusBackgroundOrderBeenCancelFlight = UIColor.init(hexString: "#FFEFEF")!
-    public static let handnoteOrderStatusTextOrderBeenCancelFlight = UIColor.init(hexString: "#FF0406")!
+    public static let handnoteOrderStatusTextWaitingForServiceFlight = summerSky
+    public static let handnoteOrderStatusBackgroundFinishedServiceFlight = lilyWhite
+    public static let handnoteOrderStatusTextFinishedServiceFlight = greenText
+    public static let handnoteOrderStatusBackgroundOrderBeenCancelFlight = whiteSmoke
+    public static let handnoteOrderStatusTextOrderBeenCancelFlight = torchRed
     
     
-    public static let handnoteStatusButtonCompletePassengerInformation = UIColor.init(hexString: "#FF801D")!
-    public static let handnoteStatusButtonCompletePassengerInformationBackground = UIColor.init(hexString: "#FFF7EB")!
-    public static let handnoteStatusButtonCompletePassengerInformationTextColor = handnoteOrderStatusTextWaitingForAccept
-    public static let handnoteInstallmentPaymentPrimary = UIColor.init(hexString: "#FF8002")!
-    public static let handnoteMoneyColor = UIColor.init(hexString: "#EE5656")!
+    public static let handnoteStatusButtonCompletePassengerInformation = pumpkin
+    public static let handnoteStatusButtonCompletePassengerInformationBackground = oldLace
+    public static let handnoteStatusButtonCompletePassengerInformationTextColor = neonCarrot
+    public static let handnoteInstallmentPaymentPrimary = darkOrange
+    public static let handnoteMoneyColor = flamingo
+    
+    //tet
+    public static let tetHolidayButton_Red = primary
     
 }
 
@@ -256,7 +312,27 @@ public class AppColorDefine: NSObject {
     public static let cancelled_red_light = UIColor.init(hexString: "F1FCF3")!
     public static let cancelled_red_text = UIColor.init(hexString: "155724")!
     
-    
 }
 
+extension UIColor {
 
+    func lighter(by percentage: CGFloat = 30.0) -> UIColor? {
+        return self.adjust(by: abs(percentage) )
+    }
+
+    func darker(by percentage: CGFloat = 30.0) -> UIColor? {
+        return self.adjust(by: -1 * abs(percentage) )
+    }
+
+    func adjust(by percentage: CGFloat = 30.0) -> UIColor? {
+        var red: CGFloat = 0, green: CGFloat = 0, blue: CGFloat = 0, alpha: CGFloat = 0
+        if self.getRed(&red, green: &green, blue: &blue, alpha: &alpha) {
+            return UIColor(red: min(red + percentage/100, 1.0),
+                           green: min(green + percentage/100, 1.0),
+                           blue: min(blue + percentage/100, 1.0),
+                           alpha: alpha)
+        } else {
+            return nil
+        }
+    }
+}
